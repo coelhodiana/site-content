@@ -7,17 +7,16 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
-  url: env('URL', env.API),
+  url: env('URL', 'http://localhost:1337'),
   admin: {
     auth: {
       secret: env('ADMIN_JWT_SECRET', 'seu_jwt_secreto'),
     },
-    url: env('ADMIN_URL', `${env.API}/admin`),
+    url: env('ADMIN_URL', 'https://localhost:1337/admin'),
   },
   ssl: {
     enabled: true,
-    key: `/etc/letsencrypt/live/${env.API}/privkey.pem`,
-    cert: `/etc/letsencrypt/live/${env.API}/fullchain.pem`,
+    key: '/etc/letsencrypt/live/api.dianacoelho.com.br/privkey.pem',
+    cert: '/etc/letsencrypt/live/api.dianacoelho.com.br/fullchain.pem',
   },
 });
-
